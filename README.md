@@ -4,7 +4,7 @@
 
 ## Neuron Finding
 
-The PRoject can best be described as object-finding or image segmentation, where your goal is to design a model whose output is the coordinates to regions of interest in an image.There’s no discrete label; rather, your model needs to learn segments in a continuous two-dimensional plane; relevant information to learning these segments, however, may be strewn over a third dimension of time. This makes for a very high-dimensional, largescale 
+The Project can best be described as object-finding or image segmentation, where your goal is to design a model whose output is the coordinates to regions of interest in an image.There’s no discrete label; rather, your model needs to learn segments in a continuous two-dimensional plane; relevant information to learning these segments, however, may be strewn over a third dimension of time. This makes for a very high-dimensional, largescale 
 
 ## The Problem
 The data are height-by-width-by-time, and your model needs to learn a height-by-width mapping of pixels, where each pixel is either part of a neuron, or isn’t. Each folder of training and testing images is a single plane, and the images are numbered according to their temporal ordering. The neurons in the images will “flicker” on and off, as calcium (Ca2+) is added, activating the action potential gates. You’ll have to use this information in order to locate the neurons and segment them out from the surrounding
@@ -20,12 +20,9 @@ What things you need to install the software and how to install them
 #### Data
 Each folder contains a variable number of images; sample 00.00 contains 3,024 images, while sample 00.01 contains 3,048. The image files themselves are numbered, e.g. image00000.tiff, but all the images in a single folder represent the same sample, just taken at different times with different calcium levels. The training labels exist at the sample level, so you’ll use all the images in a single folder to learn the locations of the neurons. Each folder will have a unique sample with unique numbers and positions of neurons. However, while time is a dimension to the data, you may not need to explicitly model it; we are just interested in finding the active neurons in space
 
-![TrainingTesting](https://github.com/dsp-uga/Elders/blob/master/Examples/Train.JPG)
-This image represents more or less what you’ll receive in the training and testing data.
+The image on left represents more or less what you’ll receive in the training and testing data. The image on right is the goal of your learner i.e draw circles around the regions that contain neurons.
 
-![Output](https://github.com/dsp-uga/Elders/blob/master/Examples/output.JPG)
-This image on the right is the goal of your learner i.e draw circles around the regions that contain neurons.
-
+<img src="https://github.com/dsp-uga/Elders/blob/master/Examples/Train.JPG" width="400"> <img src="https://github.com/dsp-uga/Elders/blob/master/Examples/output.JPG" width="400">
 
 ```
 Give examples
