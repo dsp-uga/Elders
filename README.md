@@ -78,4 +78,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Hat tip to anyone who's code was used
+* 'Minhaz Palasara' for Skeleton Code 3DCNN [link](https://github.com/CURG-archive/keras/blob/566ae39b28a0f3e2dde8e946b3b529ee87a0900f/examples/shapes_3d_cnn.py) 
 
