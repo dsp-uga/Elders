@@ -37,3 +37,7 @@ b = load('/home/maulik/DataSciencePracticum/Project3/neurofinder.00.01/regions/o
 print(match(a, b))
 print(centers(a, b))
 print(shapes(a, b))
+
+#Set the parameters for the threshold
+#Does not seem to  work properly.
+print(match(a, b,10))
