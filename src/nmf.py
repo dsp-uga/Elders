@@ -124,10 +124,15 @@ This section declares some extra variables, and fetches the data from the source
 #Set extra logfile name as broadcast variable.
 log_file = sc.broadcast('log.log')
 #Fetch and extract the data.
-image_rdd = sc.parallelize(input_array)
-print(image_rdd.take(1))
-image_rdd.map(fetch_data)
-image_rdd.collect()
+#image_rdd = sc.parallelize(input_array)
+#print(image_rdd.take(1))
+#image_rdd.map(fetch_data)
+#image_rdd.collect()
+
+
+for input in input_array:
+    fetch_data(input)
+
 print('Data Fetched.')
 
 
