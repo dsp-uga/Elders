@@ -52,16 +52,19 @@ def fetch_data(file_name):
     Return:
         None.
     """
+    print('Inside fetch')
     #Create a string to get the file with wget command.
     wget_cmd = (str('wget ' + data_path.value + '/'+ file_name + '.zip -o ' + log_file.value 
                     + ' -p ' + store_path.value))
+    print(wget_cmd)
     #Run on the shell.
     os.system(wget_cmd)
-    
+    print('File Downloaded:')
     #Unzip the file.
     zip_read = zipfile.ZipFile(store_path.value + '/' + file_name + '.zip', 'r')
     zip_read.extractall(store_data_path.value)
     zip_read.close()
+    print('File Extracted')
     return
 
 
@@ -90,23 +93,25 @@ parser.add_argument('-e','--spark_params', type=str,
                     help='Spark parameters to set separated by commas.')
 
 args = vars(parser.parse_args())
+print(args)
 
 #Get 1.Download path, 2. storage path 3.Setting spark parameters. 4. List of files 5. Final output path.
 #Broadcast the required paths and create arrays from comma separated values.
 dw_path = args['dw_path']
-store_data_path = sc.broadcast('dw_path') #Broadcast.
-
+data_path = sc.broadcast(dw_path) #Broadcast.
+print(data_path.value)
 file_names = args['file_names']
 input_array = file_names.split(',')
-
+print(input_array)
 str_path = args['store_path']
 store_path = sc.broadcast(str_path) #Broadcast.
-
+print(store_path.value)
 output_path = args['output_path']
 store_data_path = sc.broadcast(output_path) #Broadcast.
-
+print(store_data_path.value)
 spark_params = args['spark_params']
-spark_param_arrays = spark_params.split(',') 
+spark_param_arrays = spark_params.split(',')
+print(spark_param_arrays) 
 #Set the Spark Parameters.
 #The input should be param_name=param_value.
 for paramString in spark_param_arrays:
@@ -120,8 +125,9 @@ This section declares some extra variables, and fetches the data from the source
 log_file = sc.broadcast('log.log')
 #Fetch and extract the data.
 image_rdd = sc.parallelize(input_array)
+print(image_rdd.take(1))
 image_rdd.map(fetch_data)
-
+image_rdd.collect()
 print('Data Fetched.')
 
 
@@ -131,9 +137,9 @@ This section processes the image folders one by one. The parameters are set afte
 arguments. 
 """
 #Declare the output array.
-outputArray= []
+output_array= []
 #Get the list of directories inside the
-for root,dirs,files in os.walk():
+for root,dirs,files in os.walk(store_data_path.value):
     for dir in dirs:
         #Load data from the source path and convert into RDD for parallalization.
         images = td.images.fromtif(store_data_path.value + '/' + dir + '/images', ext='tiff')
