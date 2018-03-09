@@ -4,7 +4,7 @@
 
 ## Neuron Finding
 
-The Project can best be described as object-finding or image segmentation, where your goal is to design a model whose output is the coordinates to regions of interest in an image.There’s no discrete label; rather, your model needs to learn segments in a continuous two-dimensional plane; relevant information to learning these segments, however, may be strewn over a third dimension of time. This makes for a very high-dimensional, largescale 
+The Project can best be described as object-finding or image segmentation, where your goal is to design a model whose output is the coordinates to regions of interest in an image.There’s no discrete label; rather, your model needs to learn segments in a continuous two-dimensional plane; relevant information to learning these segments, however, may be strewn over a third dimension of time. This makes for a very high-dimensional, largescale
 
 ## The Problem
 The data are height-by-width-by-time, and your model needs to learn a height-by-width mapping of pixels, where each pixel is either part of a neuron, or isn’t. Each folder of training and testing images is a single plane, and the images are numbered according to their temporal ordering. The neurons in the images will “flicker” on and off, as calcium (Ca2+) is added, activating the action potential gates. You’ll have to use this information in order to locate the neurons and segment them out from the surrounding
@@ -60,7 +60,7 @@ Please read [CONTRIBUTING.md](https://github.com/dsp-uga/Elders/blob/master/CONT
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
@@ -78,5 +78,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Hat tip to anyone who's code was used
-* 'Minhaz Palasara' for Skeleton Code 3DCNN [link](https://github.com/CURG-archive/keras/blob/566ae39b28a0f3e2dde8e946b3b529ee87a0900f/examples/shapes_3d_cnn.py) 
-
+* 'Minhaz Palasara' for Skeleton Code 3DCNN [link](https://github.com/CURG-archive/keras/blob/566ae39b28a0f3e2dde8e946b3b529ee87a0900f/examples/shapes_3d_cnn.py)
+* 'Zizhao Zhang' for UNet architecture model
+[link](https://github.com/zizhaozhang/unet-tensorflow-keras/blob/master/model.py)
+* 'Alex Klibisz' for 'Download dataset module' inspiration
+[link](https://github.com/alexklibisz/deep-calcium)
