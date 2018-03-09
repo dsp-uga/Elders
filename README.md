@@ -22,7 +22,7 @@ Each folder contains a variable number of images; sample 00.00 contains 3,024 im
 
 The image on left represents more or less what you’ll receive in the training and testing data. The image on right is the goal of your learner i.e draw circles around the regions that contain neurons.
 
-<img src="https://github.com/dsp-uga/Elders/blob/master/Examples/Train.JPG" width="400"> <img src="https://github.com/dsp-uga/Elders/blob/master/Examples/output.JPG" width="400">
+<img src="https://github.com/dsp-uga/Elders/blob/master/media/Train.jpeg" width="400"> <img src="https://github.com/dsp-uga/Elders/blob/master/media/output.jpeg" width="400">
 
 ```
 Give examples
