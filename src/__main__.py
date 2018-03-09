@@ -1,5 +1,5 @@
 import argparse
-from src import 3dcnn, unet
+from src import CNNPreProc, unet
 
 def main(args):
     parser = argparse.ArgumentParser(description='Execute Elder commands')
@@ -8,3 +8,5 @@ def main(args):
     args = parser.parse_args()
     if args.model == 'unet':
         unet().extract_roi()
+    if args.model == 'cnn':
+        cn=CNNPreProc()
