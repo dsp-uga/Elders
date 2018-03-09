@@ -7,10 +7,11 @@ from glob import glob
 import scipy.misc
 import os
 
+# The path where all the files will be stored
 path="C:\\Users\\nihal\\PycharmProjects\\datascp\\data\\"
 # load the images
 dno=0
-with open("test.txt", "a") as myfile:
+with open("Label.txt", "a") as myfile:
     for d in os.listdir(path):
         print("Doing "+str(d))
         imgs=imread(path+"\\"+d+"\\"+'images\\image00000.tiff')
@@ -18,16 +19,18 @@ with open("test.txt", "a") as myfile:
         file_count=0
         for f in files:
             print("Processing Image and its Regions :"+f,end="\r")
-            imgs+=imread(f)
+            imgs+=imread(f) # add each value of a pixel of all images here 
             file_count+=1
         rgb_min = 0
         rgb_max = 1
         normal_min = 0
         normal_max = 255
-        #print(imgs[345])
-        imgs= rgb_min+(((imgs-normal_min)*(rgb_max-rgb_min))/(normal_max-normal_min))
-        #print(imgs[345])
-        fname='outfile_'+str(dno)+'.jpg'
+        
+        # Normaliztion from 0 to 1
+        imgs= rgb_min+(((imgs-normal_min)*(rgb_max-rgb_min))/(normal_max-normal_min)) 
+        fname='outfile_'+str(dno)+'.jpg' 
+        
+        # Save the flatten from 4D to 3D to a image
         scipy.misc.imsave('outfile_'+str(dno)+'.jpg', imgs)
         dno += 1
 
@@ -36,6 +39,7 @@ with open("test.txt", "a") as myfile:
             regions = json.load(f)
             i = 0
             squareregions = {}
+            # The bounding box creation for each neuron 
             for rr in regions:
                 maxx = 0
                 maxy = 0
@@ -59,6 +63,7 @@ with open("test.txt", "a") as myfile:
                 # print(arry)
                 # squareregions[regions[i]["id"]]=arry
                 i += 1
+                # Append to label file
                 myfile.write(path +fname+ "," + str(minx) + "," + str(miny) + "," + str(maxx) + "," + str(maxy) + "," + "neuron\n")
 
 
