@@ -24,43 +24,47 @@ The image on left represents more or less what you’ll receive in the training 
 
 <img src="https://github.com/dsp-uga/Elders/blob/master/media/Train.jpeg" width="400"> <img src="https://github.com/dsp-uga/Elders/blob/master/media/output.jpeg" width="400">
 
-```
-Give examples
-```
-
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+Creating an environment from an ```environment.yml``` file:
 
-Say what the step will be
-
+Use the Terminal or an Anaconda Prompt for the following steps. Create the environment from the environment.yml file:
 ```
-Give the example
+   conda env create -f environment.yml
 ```
+Activate the new environment:
+     
+ * Windows: ```activate myenv```
+     
+ * macOS and Linux: ```source activate myenv```
 
-And repeat
+NOTE: Replace myenv with the name of the environment.
 
+Verify that the new environment was installed correctly:
 ```
-until finished
+   conda list
 ```
+Below packages need to be installed on GCP:
 
-End with an example of getting some data out of the system or using it for a little demo
+`apt-get install python-pip`
 
-## Deployment
+`sudo pip install pyspark`
 
-Add additional notes about how to deploy this on a live system
+`sudo pip install thunder`
+
+`sudo pip install thunder-extraction`
+
+`sudo pip install thunder-factorization`
 
 ## Built With
 
-* [Link](http://www.dropwizard.io/1.0.2/docs/) - Blah Blah
+* Pycharm 
+* GCP 
+* Atom
 
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://github.com/dsp-uga/Elders/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
@@ -78,7 +82,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Hat tip to anyone who's code was used
-* 'Minhaz Palasara' for Skeleton Code 3DCNN [link](https://github.com/CURG-archive/keras/blob/566ae39b28a0f3e2dde8e946b3b529ee87a0900f/examples/shapes_3d_cnn.py)
+* 'houchaoqun' for frcn model
+[link](https://github.com/Houchaoqun/keras_frcnn)
 * 'Zizhao Zhang' for UNet architecture model
 [link](https://github.com/zizhaozhang/unet-tensorflow-keras/blob/master/model.py)
 * 'Alex Klibisz' for 'Download dataset module' inspiration
