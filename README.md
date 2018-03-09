@@ -83,3 +83,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 [link](https://github.com/zizhaozhang/unet-tensorflow-keras/blob/master/model.py)
 * 'Alex Klibisz' for 'Download dataset module' inspiration
 [link](https://github.com/alexklibisz/deep-calcium)
+* Jeremy Freeman for Neurofinder repository and examples. [examples link](https://gist.github.com/freeman-lab) [neurofinder link](https://github.com/codeneuro/neurofinder)
