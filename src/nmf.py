@@ -54,8 +54,7 @@ def fetch_data(file_name):
     """
     print('Inside fetch')
     #Create a string to get the file with wget command.
-    wget_cmd = (str('wget ' + data_path.value + '/'+ file_name + '.zip -o ' + log_file.value 
-                    + ' -p ' + store_path.value))
+    wget_cmd = (str('wget ' + data_path.value + '/'+ file_name + '.zip  -p ' + store_path.value))
     print(wget_cmd)
     #Run on the shell.
     os.system(wget_cmd)
@@ -130,8 +129,8 @@ log_file = sc.broadcast('log.log')
 #image_rdd.collect()
 
 
-for input in input_array:
-    fetch_data(input)
+#for input in input_array:
+#    fetch_data(input)
 
 print('Data Fetched.')
 
@@ -148,7 +147,7 @@ for root,dirs,files in os.walk(store_data_path.value):
     for dir in dirs:
         #Load data from the source path and convert into RDD for parallalization.
         images = td.images.fromtif(store_data_path.value + '/' + dir + '/images', ext='tiff')
-        images = td.series.fromarray(images,engine=sc)
+#        images = td.series.fromarray(images,engine=sc)
         
         #Run the NMF over the algorithms.
         #TODO: Set the parameters from command-line
